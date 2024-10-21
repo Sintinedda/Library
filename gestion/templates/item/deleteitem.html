@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Supprimer un item</title>
+    </head>
+    <body>
+        <h1>Supprimer le {{ cat }}, {{ item.name }}</h1>
+        {% if item.available %}
+            <p>Voulez vous vraiment supprimer le {{ cat }}, {{ item.name }}.</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Supprimer {{ cat }}"/>
+                <a href="{% url 'itemlist' cat=cat %}"><input type="button" value="Non"/></a>
+            </form>
+        {% elif not item.available %}
+            <p>Vous ne pouvez pas supprimer le {{ cat }}, {{ item.name }} car il n'a pas été encore retourné.</p>
+            <a href="{% url 'itemlist' cat=cat %}"><input type="button" value="Retour"></a>
+        {% endif %}
+    </body>
+</html>
