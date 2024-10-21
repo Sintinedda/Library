@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Ajouter une catégorie</title>
+    </head>
+    <body>
+        <h1>Ajouter une catégorie</h1>
+        <p>Entrez le nom de la catégorie à ajouter.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <p>{{ error }}</p>
+            <input type="submit" value="Ajouter"/>
+        </form>
+    </body>
+</html>

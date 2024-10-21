@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Modifier une catégorie</title>
+    </head>
+    <body>
+        <h1>Modifier {{ cat }}</h1>
+        <p>Entrez le nouveau nom de {{ cat }}.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <p>{{ error }}</p>
+            <input type="submit" value="Modifier"/>
+        </form>
+    </body>
+</html>
