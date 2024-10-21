@@ -8,12 +8,10 @@
     <body>
         <h1>Supprimer {{ cat }}</h1>
         <p>Voulez vous vraiment supprimer la catégorie {{ cat }}.</p>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Supprimer {{ cat }}"/>
-        <a href="{% url 'categorylist' %}">
-            <input type="button" value="Non"/>
-        </a>
-    </form>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Supprimer {{ cat }}"/>
+            <a href="{% url 'categorylist' %}"><input type="button" value="Non"/></a>
+        </form>
     </body>
 </html>

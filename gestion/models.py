@@ -26,10 +26,13 @@ class Item(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
     author = models.CharField(max_length=150)
-    loandate = models.DateField()
+    loandate = models.DateField(null=True, blank=True)
     available = models.BooleanField(default=True)
-    borrower = models.ForeignKey(Member, on_delete=models.CASCADE)
+    borrower = models.ForeignKey(Member, on_delete=models.CASCADE, blank=True, null=True)
+    def __str__(self):
+        return self.name + ' par ' + self.author
 
     class Meta:
         ordering = ['name']
+        unique_together = (('name', 'author'),)
 

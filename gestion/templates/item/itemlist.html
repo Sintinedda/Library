@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Liste des items selon leurs catégories</title>
+    </head>
+    <body>
+        <h1>Liste des {{ cat }}</h1>
+        <p>Intéragissez avec un {{ cat }} ou ajouter en un.</p>
+        <a href="{% url 'additem' cat=cat %}"><input type="button" value="Ajouter un {{ cat }}"/></a>
+        <ul>
+            {% for item in items %}
+                <li>
+                    <a href="{% url 'updateitem' cat=cat id=item.id %}"><input type="button" value="Modifier"/></a>
+                    <a href="{% url 'deleteitem' cat=cat id=item.id %}"><input type="button" value="Supprimer"/></a>
+                    {% if item.available %}
+                        <a href=""><input type="button" value="Prêter"/></a>
+                        <input type="color" value="#35e31e"/>
+                    {% elif not item.available %}
+                        <a href=""><input type="button" value="Retour"/></a>
+                        <input type="color" value="#e3291e"/>
+                    {% endif %}
+                    {{ item.name }} - {{ item.author }}
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
