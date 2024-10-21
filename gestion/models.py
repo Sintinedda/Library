@@ -9,7 +9,6 @@ class Category(models.Model):
         ordering = ['name']
 
 
-
 class Member(models.Model):
     firstname = models.CharField(max_length=150)
     lastname = models.CharField(max_length=150)
@@ -35,4 +34,3 @@ class Item(models.Model):
     class Meta:
         ordering = ['name']
         unique_together = (('name', 'author'),)
-

@@ -11,12 +11,11 @@
             <p>Voulez vous vraiment supprimer le {{ cat }}, {{ item.name }}.</p>
             <form action="" method="post">
                 {% csrf_token %}
-                <input type="submit" value="Supprimer {{ cat }}"/>
-                <a href="{% url 'itemlist' cat=cat %}"><input type="button" value="Non"/></a>
+                <input type="submit" value="Supprimer"/>
             </form>
         {% elif not item.available %}
             <p>Vous ne pouvez pas supprimer le {{ cat }}, {{ item.name }} car il n'a pas été encore retourné.</p>
-            <a href="{% url 'itemlist' cat=cat %}"><input type="button" value="Retour"></a>
         {% endif %}
+        <a href="{% url 'itemlist' cat=cat %}"><input type="button" value="Retour"></a>
     </body>
 </html>
