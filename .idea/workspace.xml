@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec4febf8-f1c5-4d5c-95f0-4afa257331e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/gestion/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion/templates/category/catlist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gestion/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gestion/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/library/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +35,7 @@
   "keyToString": {
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "models",
+    "git-widget-placeholder": "category",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -39,6 +44,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jerem\Documents\Documents\Cours\Django\library\gestion" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="library" type="Python.DjangoServer" factoryName="Django server">
       <module name="library" />
@@ -81,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1729501576096</updated>
-      <workItem from="1729501582186" duration="1119000" />
+      <workItem from="1729501582186" duration="2707000" />
     </task>
     <servers />
   </component>

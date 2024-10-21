@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Supprimer une catégorie</title>
+    </head>
+    <body>
+        <h1>Supprimer {{ cat }}</h1>
+        <p>Voulez vous vraiment supprimer la catégorie {{ cat }}.</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Supprimer {{ cat }}"/>
+        <a href="{% url 'categorylist' %}">
+            <input type="button" value="Non"/>
+        </a>
+    </form>
+    </body>
+</html>
