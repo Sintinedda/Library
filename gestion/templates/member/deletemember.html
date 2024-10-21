@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Supprimer un membre</title>
+    </head>
+    <body>
+        <h1>Supprimer le membre, {{ member.firstname }} {{ member.lastname }}</h1>
+        {% if not member.blocked %}
+            <p>Voulez vous vraiment supprimer le membre, {{ member.firstname }} {{ member.lastname }}.</p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Supprimer"/>
+            </form>
+        {% elif member.blocked %}
+            <p>Vous ne pouvez pas supprimer le membre, {{ member.firstname }} {{ member.lastname }} car il n'a pas
+                rendu le ou les items empruntés.</p>
+        {% endif %}
+        <a href="{% url 'memberlist' %}"><input type="button" value="Retour"></a>
+    </body>
+</html>

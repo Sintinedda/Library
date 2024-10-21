@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Liste des membres</title>
+    </head>
+    <body>
+        <h1>Liste des membres</h1>
+        <p>Intéragissez avec un membre ou ajouter en un.</p>
+        <a href="{%  url 'addmember' %}"><input type="button" value="Ajouter un membre"/></a>
+        <ul>
+            {% for member in members %}
+                <li>
+                    <a href="{% url 'updatemember' id=member.id %}"><input type="button" value="Modifier"/></a>
+                    <a href="{% url 'deletemember' id=member.id %}"><input type="button" value="Supprimer"/></a>
+                    {% if member.blocked %}
+                        <input type="color" value="#e3291e"/>
+                    {% elif not member.blocked %}
+                        <input type="color" value="#35e31e"/>
+                    {% endif %}
+                    <a href="">{{ member.lastname }}  {{ member.firstname }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
-from unicodedata import category
-
 from .forms import *
 from .models import *
 
 
-                              #CATEGORY
+                                                  # CATEGORY
 
 def categorylist(request):
     categories = Category.objects.all()
@@ -14,8 +12,8 @@ def categorylist(request):
 
 
 def addcategory(request):
-    form = AddCatForm(request.POST)
     if request.method == 'POST':
+        form = AddCatForm(request.POST)
         name = request.POST.get('name')
         if Category.objects.filter(name=name).exists():
             error = 'Cette catégorie existe déjà!!!'
@@ -28,14 +26,15 @@ def addcategory(request):
                 category.save()
                 return redirect('categorylist')
     else:
+        form = AddCatForm()
         return render(request, 'category/addcat.html',
                       {'form': form})
 
 
 def updatecategory(request, cat):
-    form = UpdateCatForm(request.POST)
     cat = Category.objects.get(name=cat)
     if request.method == 'POST':
+        form = UpdateCatForm(request.POST)
         name = request.POST.get('name')
         if Category.objects.filter(name=name).exists():
             error = 'Cette catégorie existe déjà!!!'
@@ -47,6 +46,7 @@ def updatecategory(request, cat):
                 cat.save()
                 return redirect('categorylist')
     else:
+        form = UpdateCatForm()
         return render(request, 'category/updatecat.html',
                       {'cat': cat, 'form': form})
 
@@ -62,7 +62,7 @@ def deletecategory(request, cat):
 
 
 
-                                # ITEM
+                                               # ITEM
 
 def itemlist(request, cat):
     cat = Category.objects.get(name=cat)
@@ -73,8 +73,8 @@ def itemlist(request, cat):
 
 def additem(request, cat):
     cat = Category.objects.get(name=cat)
-    form = AddItemForm(request.POST)
     if request.method == 'POST':
+        form = AddItemForm(request.POST)
         name = request.POST.get('nom')
         author = request.POST.get('auteur')
         if Item.objects.filter(name=name, author=author).exists():
@@ -90,6 +90,7 @@ def additem(request, cat):
                 item.save()
                 return redirect('itemlist', cat)
     else:
+        form = AddItemForm()
         return render(request, 'item/additem.html',
                       {'form': form, 'cat': cat})
 
@@ -97,8 +98,8 @@ def additem(request, cat):
 def updateitem(request, cat, id):
     cat = Category.objects.get(name=cat)
     item = Item.objects.get(pk=id)
-    form = UpdateItemForm(request.POST)
     if request.method == 'POST':
+        form = UpdateItemForm(request.POST)
         name = request.POST.get('nom')
         author = request.POST.get('auteur')
         if Item.objects.filter(name=name, author=author).exists():
@@ -113,6 +114,7 @@ def updateitem(request, cat, id):
                 item.save()
                 return redirect('itemlist', cat)
     else:
+        form = UpdateItemForm()
         return render(request, 'item/updateitem.html',
                       {'cat': cat, 'item': item, 'form': form})
 
@@ -126,3 +128,65 @@ def deleteitem(request, cat, id):
     else:
         return render(request, 'item/deleteitem.html',
                       {'cat': cat, 'item': item})
+
+
+                                         # MEMBER
+
+def memberlist(request):
+    members = Member.objects.all()
+    return render(request, 'member/memberlist.html',
+                  {'members': members})
+
+
+def addmember(request):
+    if request.method == 'POST':
+        form = AddMemberForm(request.POST)
+        firstname = request.POST.get('prenom')
+        lastname = request.POST.get('nom')
+        if Member.objects.filter(firstname=firstname, lastname=lastname):
+            error = 'Ce membre existe déjà!!!'
+            return render(request, 'member/addmember.html',
+                          {'form': form, 'error': error})
+        else:
+            if form.is_valid():
+                member = Member()
+                member.firstname = form.cleaned_data['prenom']
+                member.lastname = form.cleaned_data['nom']
+                member.save()
+                return redirect('memberlist')
+    else:
+        form = AddMemberForm()
+        return render(request, 'member/addmember.html',
+                      {'form': form})
+
+
+def updatemember(request, id):
+    member = Member.objects.get(pk=id)
+    if request.method == 'POST':
+        form = UpdateMemberForm(request.POST)
+        firstname = request.POST.get('prenom')
+        lastname = request.POST.get('nom')
+        if Member.objects.filter(firstname=firstname, lastname=lastname):
+            error = 'Ce membre existe déjà!!!'
+            return render(request, 'member/updatemember.html',
+                          {'form': form, 'member': member, 'error': error})
+        else:
+            if form.is_valid():
+                member.firstname = form.cleaned_data['prenom']
+                member.lastname = form.cleaned_data['nom']
+                member.save()
+                return redirect('memberlist')
+    else:
+        form = UpdateMemberForm()
+        return render(request, 'member/updatemember.html',
+                      {'form': form, 'member': member})
+
+
+def deletemember(request, id):
+    member = Member.objects.get(pk=id)
+    if request.method == 'POST':
+        member.delete()
+        return redirect('memberlist')
+    else:
+        return render(request, 'member/deletemember.html',
+                      {'member': member})
