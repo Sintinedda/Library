@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Menu de l'application gestion de la médiathèque</title>
+    </head>
+    <body>
+        <h1>Menu gestion</h1>
+        <p><a href="">
+            <input type="button" value="Vers la gestion des médias "/>
+        </a></p>
+        <p><a href="">
+            <input type="button" value="Vers la gestion membre"/>
+        </a></p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Retour à l'accueil"/>
+            <p>Revenir à l'accueil vous déconnectera.</p>
+        </form>
+    </body>
+</html>

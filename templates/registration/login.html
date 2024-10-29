@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Connexion au menu gestion de la médiathèque</title>
+    </head>
+    <body>
+        <h1>Connexion gestion</h1>
+        <p>Renseigner les identifiants pour pouvoir accéder au menu de gestion</p>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form }}
+            <p>{{ errmsg }}</p>
+            <input type="submit" value="Valider">
+            <a href="{% url 'home' %}">
+                <input type="button" value="Retour à l'accueil">
+            </a>
+        </form>
+    </body>
+</html>
