@@ -22,21 +22,6 @@ class Item(models.Model):
 
 class Livre(Item):
     author = models.CharField(max_length=100)
-    nbpage = models.IntegerField()
-    TYPE_BOOKS = {
-        ('Roman', 'Roman'),
-        ('Nouvelle', 'Nouvelle'),
-        ('Fantasy', 'Fantastique'),
-        ('Polar', 'Polar'),
-        ('Bio', 'Biographie'),
-        ('Contes', 'Contes'),
-        ('Essai', 'Essai'),
-        ('Poésie', 'Poésie'),
-        ('Manga', 'Manga'),
-        ('Théâtre', 'Théâtre'),
-        ('BD', 'Bande dessinée')
-    }
-    type = models.TextField(choices=TYPE_BOOKS)
 
     def __str__(self):
         return self.name + ' ' + self.author
@@ -44,21 +29,6 @@ class Livre(Item):
 
 class Cd(Item):
     interpreter = models.CharField(max_length=100)
-    type = models.TextField('Album', 'Single', 'Compilation')
-    STYLE_CHOICES = {
-        ('Pop', 'Pop'),
-        ('Rock', 'Rock'),
-        ('Hip-hop', 'Hip-hop'),
-        ('Électro', 'Électro'),
-        ('Jazz', 'Jazz'),
-        ('Classique', 'Classique'),
-        ('Reggae', 'Reggae'),
-        ('Rap', 'Rap'),
-        ('Country', 'Country'),
-        ('Blues', 'Blues'),
-        ('Métal', 'Métal')
-    }
-    style = models.TextField(choices=STYLE_CHOICES)
 
     def __str__(self):
         return self.name + ' ' + self.interpreter
@@ -67,21 +37,6 @@ class Cd(Item):
 class Dvd(Item):
     realisator = models.CharField(max_length=100)
     duration = models.TimeField()
-    pg = models.IntegerField()
-    STYLE_DVD = {
-        ('A/A', 'Action/Aventure'),
-        ('Comédie', 'Comédie'),
-        ('Drame', 'Drame'),
-        ('Fantasy', 'Fantastique'),
-        ('Guerre', 'Guerre'),
-        ('Policier', 'Policier'),
-        ('Horreur', 'Horreur'),
-        ('Western', 'Western'),
-        ('Sci-Fi', 'Sci-Fi'),
-        ('Doc', 'Documentaire'),
-        ('Anime', 'Dessin animé')
-    }
-    style = models.TextField(choices=STYLE_DVD)
 
     def __str__(self):
         return self.name + ' ' + self.realisator
@@ -89,7 +44,6 @@ class Dvd(Item):
 
 class Tabletop(Item):
     creator = models.CharField(max_length=100)
-    nbplayers = models.CharField(max_length=100)
     available = None
 
     def __str__(self):
