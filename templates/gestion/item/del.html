@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Supprimer item</title>
+    </head>
+    <body>
+        <h1>Supprimer le {{ cat }}, {{ item.name }}</h1>
+        <p>Voulez vous vraiment supprimer le {{ cat }}, {{ item.name }}.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Supprimer {{ cat }}"/>
+            <a href="{% url 'cat' cat=cat %}">
+                <input type="button" value="Annuler"/>
+            </a>
+        </form>
+    </body>
+</html>

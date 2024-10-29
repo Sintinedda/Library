@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Liste des catégories</title>
+    </head>
+    <body>
+        <h1>Liste des catégories</h1>
+        <p><a href="{% url 'gestionmenu' %}">
+            <input type="button" value="Retour au menu gestion"/>
+        </a></p>
+        <p>Sélectionner une catégorie.</p>
+        <ul>
+            {% for cat in cats %}
+                <li><a href="{% url 'cat' cat=cat %}">
+                    <input type="button" value="{{ cat }}"/>
+                </a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

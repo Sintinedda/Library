@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Ajouter item</title>
+    </head>
+    <body>
+        <h1>Ajouter un {{ cat }}</h1>
+        <p>Entrez le nom du {{ cat }} à ajouter.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            {% if cat == "Dvd" %}
+                <div>
+                    <label for="id_duration">Durée du Dvd :</label>
+                    <input type="text" name="duration" id="id_duration" required >
+                </div>
+            {% endif %}
+            <p>{{ err }}</p>
+            <input type="submit" value="Ajouter"/>
+            <a href="{%  url 'cat' cat=cat %}">
+                <input type="button" value="Annuler"/>
+            </a>
+        </form>
+    </body>
+</html>
