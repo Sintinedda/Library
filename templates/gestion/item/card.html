@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Fiche item</title>
+    </head>
+    <body>
+        <h1>{{ cat }}, {{ item.name }}</h1>
+        <p>Disponibilité :
+            {% if item.available %}
+                <span style="color:green">&#x2714;</span>
+            {% else %}
+                <span style="color:red">&#x2718;</span>
+            {% endif %}
+        </p>
+        <h2>Emprunts</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date d'emprunt</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for loan in loans %}
+                    <tr>
+                        <td>{{ loan.date }}</td>
+                        <td>{{ loan.member.lastname }}</td>
+                        <td>{{ loan.member.firstname }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href={% url 'cat' cat=cat %}>
+            <input type="button" value="Retour à la liste"/>
+        </a>
+    </body>
+</html>

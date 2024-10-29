@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Liste item par catégorie</title>
+    </head>
+    <body>
+        <h1>Liste de {{ cat }}</h1>
+        <p><a href={% url 'categories' %}>
+            <input type="button" value="Retour aux catégories"/>
+        </a></p>
+        <p>Intéragissez avec un {{ cat }} ou ajouter en un.</p>
+        <a href="{% url 'add_item' cat=cat %}">
+            <input type="button" value="Ajouter un {{ cat }}"/>
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    {% if cat != 'Jeu de plateau' %}
+                        <th></th>
+                        <td>Prêté à</td>
+                        <td>Depuis le</td>
+                        <th>Disponibilité</th>
+                    {% endif %}
+                    <th>Nom</th>
+                    <th>
+                        {% if cat == 'Livre' %}
+                            Auteur
+                        {% elif cat == 'Cd' %}
+                            Interprète
+                        {% elif cat == 'Dvd' %}
+                            Réalisateur
+                        {% elif cat == 'Tabletop' %}
+                            Créateur
+                        {% endif %}
+                    </th>
+                    <th>Date de parution</th>
+                    {% if cat == 'Dvd' %}
+                        <th>Durée du Dvd</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td><a href="{% url 'edit_item' cat=cat id=item.id %}">
+                            <input type="button" value="Modifier"/>
+                        </a></td>
+                        <td><a href="{% url 'del_item' cat=cat id=item.id %}">
+                            <input type="button" value="Supprimer"/>
+                        </a></td>
+                        {% if cat != "Jeu de plateau" %}
+                            <td><a href="">
+                                {% if item.available %}
+                                    <input type="button" value="Prêter"/>
+                                {% else %}
+                                    <input type="button" value="Retourner"/>
+                                {% endif %}
+                            </a></td>
+                            {% for loan in loans %}
+                                {% if loan.item == item %}
+                                    <td>{{ loan.member.name }}</td>
+                                    <td>{{ loan.date }}</td>
+                                {% endif %}
+                            {% empty %}
+                                <td></td>
+                                <td></td>
+                            {% endfor %}
+                            {% if item.available %}
+                                <td><span style="color:green">&#x2714;</span></td>
+                            {% else %}
+                                <td><span style="color:red">&#x2718;</span></td>
+                            {% endif %}
+                        {% endif %}
+                        <td><a href="{% url 'card_item' cat=cat id=item.id %}">
+                            {{ item.name }}
+                        </a></td>
+                        <td>
+                            {% if cat == 'Livre' %}
+                                {{ item.author }}
+                            {% elif cat == 'Cd' %}
+                                {{ item.interpreter }}
+                            {% elif cat == 'Dvd' %}
+                                {{ item.realisator }}
+                            {% elif cat == 'Tabletop' %}
+                                {{ item.creator }}
+                            {% endif %}
+                        </td>
+                        <td>{{ item.parution }}</td>
+                        <td>{{ item.duration }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

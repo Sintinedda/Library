@@ -2,22 +2,23 @@ from django.db import models
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100, )
     parution = models.DateField()
     available = models.BooleanField(default=True)
     CAT_CHOICES = {
-        ('Livre', 'Livre'),
-        ('Cd', 'Cd'),
-        ('Dvd', 'Dvd'),
-        ('Tabletop', 'Jeu de plateau')
+        'Livre': 'Livre',
+        'Cd': 'Cd',
+        'Dvd': 'Dvd',
+        'Tabletop': 'Tabletop',
     }
-    category = models.TextField(choices=CAT_CHOICES)
+    category = models.CharField(choices=CAT_CHOICES, max_length=100)
 
     def __str__(self):
         return self.name
 
     class Meta:
         ordering = ['name']
+        unique_together = ('name', 'category')
 
 
 class Livre(Item):
@@ -36,7 +37,7 @@ class Cd(Item):
 
 class Dvd(Item):
     realisator = models.CharField(max_length=100)
-    duration = models.TimeField()
+    duration = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name + ' ' + self.realisator
