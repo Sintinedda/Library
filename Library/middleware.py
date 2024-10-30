@@ -11,6 +11,7 @@ class SimpleMiddleware:
         self.check_status_member(request)
         return response
 
+
     def check_status_member(self, request):
         members = Member.objects.all()
         for member in members:

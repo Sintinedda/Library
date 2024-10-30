@@ -1,0 +1,748 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add item",
+      "content_type": 7,
+      "codename": "add_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change item",
+      "content_type": 7,
+      "codename": "change_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete item",
+      "content_type": 7,
+      "codename": "delete_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view item",
+      "content_type": 7,
+      "codename": "view_item"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add cd",
+      "content_type": 8,
+      "codename": "add_cd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change cd",
+      "content_type": 8,
+      "codename": "change_cd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete cd",
+      "content_type": 8,
+      "codename": "delete_cd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view cd",
+      "content_type": 8,
+      "codename": "view_cd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add dvd",
+      "content_type": 9,
+      "codename": "add_dvd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change dvd",
+      "content_type": 9,
+      "codename": "change_dvd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete dvd",
+      "content_type": 9,
+      "codename": "delete_dvd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view dvd",
+      "content_type": 9,
+      "codename": "view_dvd"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add livre",
+      "content_type": 10,
+      "codename": "add_livre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change livre",
+      "content_type": 10,
+      "codename": "change_livre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete livre",
+      "content_type": 10,
+      "codename": "delete_livre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view livre",
+      "content_type": 10,
+      "codename": "view_livre"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add tabletop",
+      "content_type": 11,
+      "codename": "add_tabletop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change tabletop",
+      "content_type": 11,
+      "codename": "change_tabletop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete tabletop",
+      "content_type": 11,
+      "codename": "delete_tabletop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view tabletop",
+      "content_type": 11,
+      "codename": "view_tabletop"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add member",
+      "content_type": 12,
+      "codename": "add_member"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change member",
+      "content_type": 12,
+      "codename": "change_member"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete member",
+      "content_type": 12,
+      "codename": "delete_member"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view member",
+      "content_type": 12,
+      "codename": "view_member"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add loan",
+      "content_type": 13,
+      "codename": "add_loan"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change loan",
+      "content_type": 13,
+      "codename": "change_loan"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete loan",
+      "content_type": 13,
+      "codename": "delete_loan"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view loan",
+      "content_type": 13,
+      "codename": "view_loan"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$TayazWqrzmZOOtjOp7nzWO$aTbU/tiSVV78z6roz1e79jbVA0zD4sD5V2drz3WsY1o=",
+      "last_login": "2024-10-30T15:24:21.923Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-29T16:38:53.510Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "gestion",
+      "model": "item"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "gestion",
+      "model": "cd"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "gestion",
+      "model": "dvd"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "gestion",
+      "model": "livre"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "gestion",
+      "model": "tabletop"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "gestion",
+      "model": "member"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "gestion",
+      "model": "loan"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 1,
+    "fields": {
+      "name": "Harry Potter a l'ecole des sorciers",
+      "parution": "1997-06-26",
+      "available": true,
+      "category": "Livre"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 2,
+    "fields": {
+      "name": "Harry Potter et la Chambre des secrets",
+      "parution": "1998-07-02",
+      "available": true,
+      "category": "Livre"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 3,
+    "fields": {
+      "name": "Harry Potter et le Prisonnier d'Azkaban",
+      "parution": "1999-07-08",
+      "available": true,
+      "category": "Livre"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 5,
+    "fields": {
+      "name": "LOTR, La communaute de l'anneau",
+      "parution": "2002-08-06",
+      "available": true,
+      "category": "Dvd"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 6,
+    "fields": {
+      "name": "test",
+      "parution": "1998-07-02",
+      "available": true,
+      "category": "Cd"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 7,
+    "fields": {
+      "name": "Livre",
+      "parution": "2002-08-06",
+      "available": true,
+      "category": "Cd"
+    }
+  },
+  {
+    "model": "gestion.item",
+    "pk": 8,
+    "fields": {
+      "name": "Monopoly",
+      "parution": "1935-02-06",
+      "available": true,
+      "category": "Tabletop"
+    }
+  },
+  {
+    "model": "gestion.livre",
+    "pk": 2,
+    "fields": {
+      "author": "J. K. Rowling"
+    }
+  },
+  {
+    "model": "gestion.livre",
+    "pk": 3,
+    "fields": {
+      "author": "J. K. Rowling"
+    }
+  },
+  {
+    "model": "gestion.livre",
+    "pk": 1,
+    "fields": {
+      "author": "J. K. Rowling"
+    }
+  },
+  {
+    "model": "gestion.cd",
+    "pk": 7,
+    "fields": {
+      "interpreter": "Cecile Coulon"
+    }
+  },
+  {
+    "model": "gestion.cd",
+    "pk": 6,
+    "fields": {
+      "interpreter": "J. K. Rowling"
+    }
+  },
+  {
+    "model": "gestion.dvd",
+    "pk": 5,
+    "fields": {
+      "realisator": "Peter Jackson",
+      "duration": "2h 51min"
+    }
+  },
+  {
+    "model": "gestion.tabletop",
+    "pk": 8,
+    "fields": {
+      "creator": "Hasbro"
+    }
+  },
+  {
+    "model": "gestion.member",
+    "pk": 1,
+    "fields": {
+      "firstname": "John",
+      "lastname": "Doe",
+      "blocked": false
+    }
+  },
+  {
+    "model": "gestion.member",
+    "pk": 2,
+    "fields": {
+      "firstname": "Jane",
+      "lastname": "Doe",
+      "blocked": false
+    }
+  },
+  {
+    "model": "gestion.member",
+    "pk": 3,
+    "fields": {
+      "firstname": "John",
+      "lastname": "Smith",
+      "blocked": false
+    }
+  },
+  {
+    "model": "gestion.member",
+    "pk": 4,
+    "fields": {
+      "firstname": "Harry",
+      "lastname": "Blanc",
+      "blocked": false
+    }
+  }
+]
