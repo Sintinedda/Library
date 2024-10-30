@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Prêter item</title>
+    </head>
+    <body>
+        <h1>Prêter le {{ cat }}, {{ item.name }}</h1>
+        <p>Choisir le membre.</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Prêter"/>
+            <a href="{%  url 'item_lists' cat=cat %}">
+                <input type="button" value="Annuler"/>
+            </a>
+        </form>
+    </body>
+</html>

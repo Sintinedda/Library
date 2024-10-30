@@ -2,6 +2,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from datetime import datetime
 
 from .forms import *
 from .models import *
@@ -294,3 +295,50 @@ def card_memb(request, id):
         else:
             return render(request, 'gestion/member/card.html',
                           {'memb': member, 'loans': loans})
+
+
+                                   # LOAN
+
+@login_required
+def lend_item(request, cat, id):
+    category = Item.CAT_CHOICES[cat]
+    c = category.lower()
+    m = ContentType.objects.get(model=c)
+    model = m.model_class()
+    item = model.objects.get(pk=id)
+    if request.method == 'POST':
+        form = LendItemForm(request.POST)
+        if form.is_valid():
+            member = form.cleaned_data['member']
+            loan = Loan()
+            loan.member = member
+            loan.item = item
+            loan.date = datetime.today().date()
+            loan.save()
+            item.available = False
+            item.save()
+            return redirect('item_lists', cat)
+    else:
+        form = LendItemForm()
+        return render(request, 'gestion/item/lend.html',
+                          {'cat': cat, 'item': item, 'form': form})
+
+
+@login_required
+def return_item(request, cat, id):
+    category = Item.CAT_CHOICES[cat]
+    c = category.lower()
+    m = ContentType.objects.get(model=c)
+    model = m.model_class()
+    item = model.objects.get(pk=id)
+    loan = Loan.objects.get(item=item)
+    member = Member.objects.get(id=loan.member_id)
+    if request.method == 'POST':
+        loan.delete()
+        item.available = True
+        item.save()
+        return redirect('item_lists', cat)
+    else:
+        name = member.firstname + ' ' + member.lastname
+        return render(request, 'gestion/item/return.html',
+                      {'cat': cat, 'item': item, 'name': name})
