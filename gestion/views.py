@@ -321,7 +321,7 @@ def lend_item(request, cat, id):
     else:
         form = LendItemForm()
         return render(request, 'gestion/item/lend.html',
-                          {'cat': cat, 'item': item, 'form': form})
+                          {'cat': category, 'item': item, 'form': form})
 
 
 @login_required
@@ -341,4 +341,4 @@ def return_item(request, cat, id):
     else:
         name = member.firstname + ' ' + member.lastname
         return render(request, 'gestion/item/return.html',
-                      {'cat': cat, 'item': item, 'name': name})
+                      {'cat': category, 'item': item, 'name': name})
