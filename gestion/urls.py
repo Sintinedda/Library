@@ -24,4 +24,9 @@ urlpatterns = [
     path('membres/editer/<int:id>/', views.edit_memb, name='edit_memb'),
     path('membres/supprimer/<int:id>/', views.del_memb, name='del_memb'),
     path('membres/<int:id>/', views.card_memb, name='card_memb'),
+
+
+# LOAN
+    path('preter/<cat>/<int:id>/', views.lend_item, name='lend_item'),
+    path('retour/<cat>/<int:id>/', views.return_item, name='return_item'),
 ]

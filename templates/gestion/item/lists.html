@@ -53,22 +53,23 @@
                             <input type="button" value="Supprimer"/>
                         </a></td>
                         {% if cat != "Jeu de plateau" %}
-                            <td><a href="">
-                                {% if item.available %}
+                            {% if item.available %}
+                                <td><a href="{% url 'lend_item' cat=cat id=item.id %}">
                                     <input type="button" value="Prêter"/>
+                                </a></td>
+                                <td></td>
+                                <td></td>
                                 {% else %}
-                                    <input type="button" value="Retourner"/>
+                                    <td><a href="{% url 'return_item' cat=cat id=item.id %}">
+                                        <input type="button" value="Retourner"/>
+                                    </a></td>    
+                                    {% for loan in loans %}
+                                        {% if loan.item.id == item.id %}
+                                            <td>{{ loan.member }}</td>
+                                            <td>{{ loan.date }}</td>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% endif %}
-                            </a></td>
-                            {% for loan in loans %}
-                                {% if loan.item == item %}
-                                    <td>{{ loan.member.name }}</td>
-                                    <td>{{ loan.date }}</td>
-                                {% endif %}
-                            {% empty %}
-                                <td></td>
-                                <td></td>
-                            {% endfor %}
                             {% if item.available %}
                                 <td><span style="color:green">&#x2714;</span></td>
                             {% else %}

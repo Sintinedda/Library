@@ -1,4 +1,5 @@
 from django import forms
+from gestion.models import Member
 
 
 class LoginForm(forms.Form):
@@ -32,3 +33,10 @@ class AddMembForm(forms.Form):
 class EditMembForm(forms.Form):
     firstname = forms.CharField(required=True, label="Prénom")
     lastname = forms.CharField(required=True, label="Nom")
+
+
+                                        # LOAN
+
+class LendItemForm(forms.Form):
+    member = forms.ModelChoiceField(queryset=Member.objects.filter(blocked=False),
+                                    required=True, label='Membre')
