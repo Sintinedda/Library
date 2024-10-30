@@ -7,13 +7,13 @@
     </head>
     <body>
         <h1>Liste des catégories</h1>
-        <p><a href="{% url 'gestionmenu' %}">
+        <p><a href="{% url 'gestion_menu' %}">
             <input type="button" value="Retour au menu gestion"/>
         </a></p>
         <p>Sélectionner une catégorie.</p>
         <ul>
             {% for cat in cats %}
-                <li><a href="{% url 'cat' cat=cat %}">
+                <li><a href="{% url 'item_lists' cat=cat %}">
                     <input type="button" value="{{ cat }}"/>
                 </a></li>
             {% endfor %}
