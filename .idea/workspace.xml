@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40ed367-b65f-478a-993c-7cf56d650fb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/gestion/item/lend.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/gestion/item/return.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Library/middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Library/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gestion/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gestion/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/gestion/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestion/item/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/item/lists.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,7 @@
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "loan",
+    "git-widget-placeholder": "check__member__status",
     "last_opened_file_path": "C:/Users/jerem/Documents/Documents/Cours/Django/mediatheque",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -100,7 +97,7 @@
       <workItem from="1730125696721" duration="8447000" />
       <workItem from="1730196056670" duration="3063000" />
       <workItem from="1730199130767" duration="23005000" />
-      <workItem from="1730279388197" duration="10320000" />
+      <workItem from="1730279388197" duration="12057000" />
     </task>
     <servers />
   </component>
