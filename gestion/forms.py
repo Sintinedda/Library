@@ -14,13 +14,15 @@ class LoginForm(forms.Form):
 class AddItemForm(forms.Form):
     name = forms.CharField(required=True, label="Nom")
     author = forms.CharField(required=True, label="Auteur")
-    parution = forms.DateField(required=True, label="Date de parution", widget=forms.DateInput)
+    parution = forms.DateField(required=True, label="Date de parution", widget=forms.DateInput,
+                               help_text='La date doit être au format AAAA-MM-JJ')
 
 
 class EditItemForm(forms.Form):
     name = forms.CharField(required=True, label="Nom")
     author = forms.CharField(required=True, label="Auteur")
-    parution = forms.DateField(required=True, label="Date de parution", widget=forms.DateInput)
+    parution = forms.DateField(required=True, label="Date de parution", widget=forms.DateInput,
+                               help_text='La date doit être au format AAAA-MM-JJ')
 
 
                                         # MEMBER
