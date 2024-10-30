@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Liste des membres</title>
+    </head>
+    <body>
+        <h1>Liste des membres</h1>
+        <p><a href="{% url 'gestion_menu' %}">
+            <input type="button" value="Retour au menu gestion"/>
+        </a></p>
+        <p>Intéragissez avec un membre ou ajouter en un.</p>
+        <a href="{% url 'add_memb' %}">
+            <input type="button" value="Ajouter un membre"/>
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Statut</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                    <tr>
+                        <td><a href="{% url 'edit_memb' id=member.id %}">
+                            <input type="button" value="Modifier"/>
+                        </a></td>
+                        <td><a href="{% url 'del_memb' id=member.id %}">
+                            <input type="button" value="Supprimer"/>
+                        </a></td>
+                        {% if member.blocked %}
+                            <td><span style="color:red">&#x2718;</span></td>
+                        {% else %}
+                            <td><span style="color:green">&#x2714;</span></td>
+                        {% endif %}
+                        <td><a href="{% url 'card_memb' id=member.id %}">
+                            {{ member.lastname }}
+                        </a></td>
+                        <td>{{ member.firstname }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>

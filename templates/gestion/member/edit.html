@@ -3,15 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Supprimer item</title>
+        <title>Modifier membre</title>
     </head>
     <body>
-        <h1>Supprimer le {{ cat }}, {{ item.name }}</h1>
-        <p>Voulez vous vraiment supprimer le {{ cat }}, {{ item.name }}.</p>
+        <h1>Modifier {{ name }}</h1>
+        <p>Entrez les nouvelles informations de {{ name }}.</p>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="Supprimer {{ cat }}"/>
-            <a href="{% url 'item_lists' cat=cat %}">
+            {{ form }}
+            <p>{{ errmsg }}</p>
+            <input type="submit" value="Modifier"/>
+            <a href="{%  url 'memb_list' %}">
                 <input type="button" value="Annuler"/>
             </a>
         </form>

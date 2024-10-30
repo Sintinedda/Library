@@ -8,7 +8,7 @@ class LoginForm(forms.Form):
                                required=True)
 
 
-                                          # MEDIAS
+                                          # MEDIA
 
 class AddItemForm(forms.Form):
     name = forms.CharField(required=True, label="Nom")
@@ -20,3 +20,15 @@ class EditItemForm(forms.Form):
     name = forms.CharField(required=True, label="Nom")
     author = forms.CharField(required=True, label="Auteur")
     parution = forms.DateField(required=True, label="Date de parution", widget=forms.DateInput)
+
+
+                                        # MEMBER
+
+class AddMembForm(forms.Form):
+    firstname = forms.CharField(required=True, label="Prénom")
+    lastname = forms.CharField(required=True, label="Nom")
+
+
+class EditMembForm(forms.Form):
+    firstname = forms.CharField(required=True, label="Prénom")
+    lastname = forms.CharField(required=True, label="Nom")

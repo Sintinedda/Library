@@ -16,7 +16,7 @@ def view_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('gestionmenu')
+            return redirect('gestion_menu')
         else:
             errmsg = "Les identifiants ne sont pas corrects"
             return render(request, 'registration/login.html',
@@ -36,17 +36,17 @@ def gestion_menu(request):
         return render(request, 'gestion/menu.html')
 
 
-                                     # MEDIAS
+                                     # MEDIA
 
 @login_required
-def categories(request):
+def cat_list(request):
     cats = Item.CAT_CHOICES
     return render(request, 'gestion/item/cat_list.html',
                   {'cats': cats})
 
 
 @login_required
-def cat(request, cat):
+def item_lists(request, cat):
     category = Item.CAT_CHOICES[cat]
     c = category.lower()
     m = ContentType.objects.get(model=c)
@@ -79,20 +79,20 @@ def add_item(request, cat):
                 if category == 'Livre':
                     m.author = form.cleaned_data['author']
                     m.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
                 elif category == 'Cd':
                     m.interpreter = form.cleaned_data['author']
                     m.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
                 elif category == 'Dvd':
                     m.realisator = form.cleaned_data['author']
                     m.duration = form.data['duration']
                     m.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
                 elif category == 'Tabletop':
                     m.creator = form.cleaned_data['author']
                     m.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
             else:
                 err = "Un des champs requis n'est pas bien renseigné"
                 return render(request, 'gestion/item/add.html',
@@ -126,7 +126,8 @@ def edit_item(request, cat, id):
     if request.method == 'POST':
         form = EditItemForm(request.POST)
         name = request.POST['name']
-        if model.objects.filter(name=name, category=category).exists():
+        if (model.objects.filter(name=name, category=category).exists()
+                and item.name != name):
             err = 'Cet item existe déjà'
             return render(request, 'gestion/item/edit.html',
                           {'form': form, 'err': err, 'cat': category, 'item': item})
@@ -135,24 +136,23 @@ def edit_item(request, cat, id):
                 item.name = form.cleaned_data['name']
                 item.parution = form.cleaned_data['parution']
                 item.category = cat
-
                 if category == 'Livre':
                     item.author = form.cleaned_data['author']
                     item.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
                 elif category == 'Cd':
                     item.interpreter = form.cleaned_data['author']
                     item.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
                 elif category == 'Dvd':
                     item.realisator = form.cleaned_data['author']
                     item.duration = form.data['duration']
                     item.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
                 elif category == 'Tabletop':
                     item.creator = form.cleaned_data['author']
                     item.save()
-                    return redirect('cat', cat)
+                    return redirect('item_lists', cat)
             else:
                 err = "Un des champs requis n'est pas bien renseigné"
                 return render(request, 'gestion/item/edit.html',
@@ -176,7 +176,7 @@ def edit_item(request, cat, id):
                           {'form': form, 'cat': category, 'item': item})
 
 
-@login_required()
+@login_required
 def del_item(request, cat, id):
     category = Item.CAT_CHOICES[cat]
     c = category.lower()
@@ -185,7 +185,7 @@ def del_item(request, cat, id):
     item = model.objects.get(pk=id)
     if request.method == 'POST':
         item.delete()
-        return redirect('cat', cat)
+        return redirect('item_lists', cat)
     else:
         return render(request, 'gestion/item/del.html',
                       {'cat': category, 'item': item})
@@ -201,3 +201,96 @@ def card_item(request, cat, id):
     loans = Loan.objects.filter(item=item)
     return render(request, 'gestion/item/card.html',
                   {'cat': category, 'item': item, 'loans': loans})
+
+
+                                        # MEMBER
+
+@login_required
+def memb_list(request):
+    members = Member.objects.all()
+    return render(request, 'gestion/member/list.html',
+                  {'members': members})
+
+
+@login_required
+def add_memb(request):
+    if request.method == 'POST':
+        form = AddMembForm(request.POST)
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        if Member.objects.filter(firstname=firstname, lastname=lastname).exists():
+            errmsg = "Ce membre existe déjà!!!"
+            return render(request, 'gestion/member/add.html',
+                          {'form': form, 'errmsg': errmsg})
+        else:
+            if form.is_valid():
+                member = Member()
+                member.firstname = form.cleaned_data['firstname']
+                member.lastname = form.cleaned_data['lastname']
+                member.save()
+                return redirect('memb_list')
+    else:
+        form = AddMembForm()
+        return render(request, 'gestion/member/add.html',
+                      {'form': form})
+
+
+@login_required
+def edit_memb(request, id):
+    member = Member.objects.get(pk=id)
+    if request.method == 'POST':
+        form = EditMembForm(request.POST)
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        name = member.firstname + ' ' + member.lastname
+        if Member.objects.filter(firstname=firstname, lastname=lastname).exists():
+            errmsg = "Ce membre existe déjà!!!"
+            return render(request, 'gestion/member/edit.html',
+                          {'form': form, 'errmsg': errmsg, 'name': name})
+        else:
+            if form.is_valid():
+                member.firstname = form.cleaned_data['firstname']
+                member.lastname = form.cleaned_data['lastname']
+                member.save()
+                return redirect('memb_list')
+    else:
+        form = EditMembForm()
+        name = member.firstname + ' ' + member.lastname
+        return render(request, 'gestion/member/edit.html',
+                      {'form': form, 'name': name})
+
+
+@login_required
+def del_memb(request, id):
+    member = Member.objects.get(pk=id)
+    if request.method == 'POST':
+        member.delete()
+        return redirect('memb_list')
+    else:
+        name = member.firstname + ' ' + member.lastname
+        return render(request, 'gestion/member/del.html',
+                      {'name': name})
+
+
+@login_required
+def card_memb(request, id):
+    member = Member.objects.get(pk=id)
+    loans = Loan.objects.filter(member=member.pk)
+    if member.blocked:
+        if request.method == 'POST':
+            member.blocked = False
+            member.save()
+            return render(request, 'gestion/member/card.html',
+                          {'memb': member, 'loans': loans})
+        else:
+            return render(request, 'gestion/member/card.html',
+                          {'memb': member, 'loans': loans})
+    else:
+        if request.method == 'POST':
+            member.blocked = True
+            member.save()
+            return render(request, 'gestion/member/card.html'
+                          , {'memb': member, 'loans': loans})
+        else:
+            return render(request, 'gestion/member/card.html',
+                          {'memb': member, 'loans': loans})
