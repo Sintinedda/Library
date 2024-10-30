@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f40ed367-b65f-478a-993c-7cf56d650fb9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/viewer/cat_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/viewer/item_lists.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/viewer/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Library/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/gestion/item/lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/gestion/item/lists.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/Library/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +34,8 @@
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "viewer",
-    "last_opened_file_path": "C:/Users/jerem/Documents/Documents/Cours/Django/mediatheque",
+    "git-widget-placeholder": "fixtures",
+    "last_opened_file_path": "C:/Users/jerem/Documents/Documents/Cours/Django/Library/Library",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,8 +78,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
-        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
+        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
       </set>
     </attachedChunks>
   </component>
@@ -101,6 +95,7 @@
       <workItem from="1730196056670" duration="3063000" />
       <workItem from="1730199130767" duration="23005000" />
       <workItem from="1730279388197" duration="14214000" />
+      <workItem from="1730301243994" duration="528000" />
     </task>
     <servers />
   </component>
