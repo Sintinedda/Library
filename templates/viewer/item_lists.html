@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Liste des items disponible par catégorie</title>
+    </head>
+    <body>
+        <h1>Liste de {{ cat.name }} disponible</h1>
+        {% if cat.name == "Jeu de plateau" %}
+            <p>Nous rappelons que les jeux de plateau sont disponibles uniquement sur place</p>
+        {% endif %}
+        <a href="{% url 'home_viewer' %}"><input type="button" value="Retour aux catégories"/></a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du {{ cat }}</th>
+                    <th>
+                        {% if cat == 'Livre' %}
+                                Auteur
+                            {% elif cat == 'Cd' %}
+                                Interprète
+                            {% elif cat == 'Dvd' %}
+                                Réalisateur
+                            {% elif cat == 'Tabletop' %}
+                                Éditeur
+                            {% endif %}
+                    </th>
+                    {% if cat == 'Dvd' %}
+                        <th>Durée du Dvd</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>
+                            {% if cat == 'Livre' %}
+                                {{ item.author }}
+                            {% elif cat == 'Cd' %}
+                                {{ item.interpreter }}
+                            {% elif cat == 'Dvd' %}
+                                {{ item.realisator }}
+                            {% elif cat == 'Tabletop' %}
+                                {{ item.creator }}
+                            {% endif %}
+                        </td>
+                        {% if cat == 'Dvd' %}
+                            <td>{{ item.duration }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
