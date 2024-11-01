@@ -76,9 +76,7 @@
                                 <td><span style="color:red">&#x2718;</span></td>
                             {% endif %}
                         {% endif %}
-                        <td><a href="{% url 'card_item' cat=cat id=item.id %}">
-                            {{ item.name }}
-                        </a></td>
+                        <td>{{ item.name }}</td>
                         <td>
                             {% if cat == 'Livre' %}
                                 {{ item.author }}
@@ -91,7 +89,9 @@
                             {% endif %}
                         </td>
                         <td>{{ item.parution }}</td>
-                        <td>{{ item.duration }}</td>
+                        {% if cat == 'Dvd' %}
+                            <td>{{ item.duration }}</td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
             </tbody>
