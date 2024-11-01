@@ -15,3 +15,7 @@
 
     username = admin
     password = mediapass
+
+# Rapport
+
+    Le rapport est dans le dossier rapport au format pdf
