@@ -15,7 +15,6 @@ urlpatterns = [
     path('ajouter/<cat>/', views.add_item, name='add_item'),
     path('editer/<cat>/<int:id>/', views.edit_item, name='edit_item'),
     path('supprimer/<cat>/<int:id>/', views.del_item, name='del_item'),
-    path('fiche/<cat>/<int:id>/', views.card_item, name='card_item'),
 
 
 # MEMBER

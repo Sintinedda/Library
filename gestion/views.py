@@ -192,18 +192,6 @@ def del_item(request, cat, id):
                       {'cat': category, 'item': item})
 
 
-@login_required
-def card_item(request, cat, id):
-    category = Item.CAT_CHOICES[cat]
-    c = category.lower()
-    m = ContentType.objects.get(model=c)
-    model = m.model_class()
-    item = model.objects.get(pk=id)
-    loans = Loan.objects.filter(item=item)
-    return render(request, 'gestion/item/card.html',
-                  {'cat': category, 'item': item, 'loans': loans})
-
-
                                         # MEMBER
 
 @login_required
